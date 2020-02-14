@@ -13,7 +13,7 @@ public class Validator {
             throw new Exception("Event can not be null");
         } else if (eventPojo.getDuration() == null || eventPojo.getTitle() == null) {
             throw new Exception("Event members can not be null");
-        } else if (!"lightning".equalsIgnoreCase(eventPojo.getDuration()) && Integer.valueOf(eventPojo.getDuration()) > 240) {
+        } else if (!"lightning".equalsIgnoreCase(eventPojo.getDuration()) && Integer.valueOf(eventPojo.getDuration()) > maxEventDuration) {
             throw new Exception("Event duration can not be greater than 240 minutes");
         }
     }
