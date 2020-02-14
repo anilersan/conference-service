@@ -24,8 +24,4 @@ public class TrackPojo {
     public void setAfternoonEvents(List<Event> afternoonEvents) {
         this.afternoonEvents = afternoonEvents;
     }
-
-    public void getLastTrack() {
-        if ()
-    }
 }

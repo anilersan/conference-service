@@ -5,7 +5,10 @@ import com.n11.conference.pojo.EventPojo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.TreeMap;
 
 @Component
 public class SortedMapGenerator {
@@ -15,9 +18,9 @@ public class SortedMapGenerator {
     @Autowired
     private Validator validator;
 
-    public TreeMap<Integer, List<String>> sortedEventMapper(AllEventsPojo allEventsPojo) throws Exception{
+    public TreeMap<Integer, List<String>> sortedEventMapper(AllEventsPojo allEventsPojo) throws Exception {
         TreeMap<Integer, List<String>> sortedEvents = new TreeMap<Integer, List<String>>(Comparator.reverseOrder());
-        for(EventPojo eventPojo : allEventsPojo.getEvents()){
+        for (EventPojo eventPojo : allEventsPojo.getEvents()) {
             validator.validate(eventPojo);
             Integer duration = durationConverter(eventPojo.getDuration());
             List<String> titles = sortedEvents.getOrDefault(duration, new ArrayList<>());
@@ -28,11 +31,10 @@ public class SortedMapGenerator {
     }
 
 
-    private Integer durationConverter(String duration){
-        if("lightning".equalsIgnoreCase(duration)){
+    private Integer durationConverter(String duration) {
+        if ("lightning".equalsIgnoreCase(duration)) {
             return lightningDuration;
-        }
-        else{
+        } else {
             return Integer.valueOf(duration);
         }
     }
