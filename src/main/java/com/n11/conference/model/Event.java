@@ -5,7 +5,9 @@ import com.n11.conference.enums.EventType;
 
 import javax.persistence.*;
 import java.time.LocalTime;
-
+/*
+entity class for event
+ */
 @Entity
 public class Event {
 

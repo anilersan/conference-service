@@ -2,7 +2,9 @@ package com.n11.conference.component;
 
 import com.n11.conference.pojo.EventPojo;
 import org.springframework.stereotype.Component;
-
+/*
+All validations for generating a map
+ */
 @Component
 public class Validator {
 

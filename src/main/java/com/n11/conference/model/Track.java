@@ -2,7 +2,9 @@ package com.n11.conference.model;
 
 import javax.persistence.*;
 import java.util.List;
-
+/*
+Entity class for tracks
+ */
 @Entity
 public class Track {
     @Id
