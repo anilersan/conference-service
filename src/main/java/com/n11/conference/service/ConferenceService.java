@@ -148,7 +148,6 @@ public class ConferenceService {
     public void handleEventGeneration(TreeMap<Integer, List<String>> sortedMap, Event event, Track track, TrackPojo trackPojo) {
         removeEventFromMap(sortedMap, event);
         event.setTrack(track);
-        System.out.println(event.getTitle() + " " + event.getStartTime() + " " + event.getDuration() + " " + event.getTrack().getId());
         eventRepository.save(event);
         if (event.getStartTime().equals(afternoonEventsStartTime) || event.getStartTime().isAfter(afternoonEventsStartTime)) {
             trackPojo.getAfternoonEvents().add(event);
